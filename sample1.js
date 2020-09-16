@@ -1,16 +1,14 @@
 console.log('app is loading ...');
-const axios = require('axios')
 
-async function getInfo(){
-    const response  = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
-    return response.data;
+async function getArray(){
+    return [3,5,2,11];
 }
 
-async function showInfo(){
-    const res =  await getInfo();
+console.log(getArray());
+
+async function showArray(){
+    const res = await getArray();
     console.log(res);
 }
 
-const res = showInfo();
-
-console.log(res);
+showArray()
