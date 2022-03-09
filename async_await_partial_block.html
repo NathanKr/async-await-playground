@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getPromise(text, timeoutMs) {
+        return new Promise((resolve) => {
+          setTimeout(() => resolve(text), timeoutMs);
+        });
+      }
+      async function clickHandler(text, timeoutMs) {
+          console.log(`start ${text}`);
+        console.log(await getPromise(`Resolved - ${text}`, timeoutMs));
+        console.log(`after await ${text}`);
+      }
+    </script>
+    <h2>Click on click1 and then on click2 and check console</h2>
+    <h3>The main thread is not blocked</h3>
+    <h3>Blocking is per async function</h3>
+    <button onclick="clickHandler('click1',3000)">Click1</button>
+    <button onclick="clickHandler('click2',1000)">Click2</button>
+  </body>
+</html>
